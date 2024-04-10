@@ -13,3 +13,13 @@ some of the challenges I came across during this development was having proper r
 
 ## Site connetion and functionality
 
+https://app.screencastify.com/v3/watch/YWXacWqGOEK8E7FtillT
+
+![Home page](image.png)
+
+![clicking get started](image-1.png)
+
+![Filling in text prompts save / clear form](image-2.png)
+
+## Credits
+The instructions and staff at Columbia University Coding Bootcamp

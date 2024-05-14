@@ -5,9 +5,11 @@ body {
   padding: 0;
 }
 
-.save-note, .new-note, .clear-btn {
-  display: none;
+
+.notes-page .save-note, .notes-page .new-note, .notes-page .clear-btn {
+  display: inline-block;
 }
+
 
 .icons {
   margin-left: 15px;

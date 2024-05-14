@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const noteTitle = document.querySelector('.note-title');
   const noteText = document.querySelector('.note-textarea');
   const saveNoteBtn = document.querySelector('.save-note');
+  const clearBtn = document.querySelector('.clear-btn');
   const noteList = document.querySelector('.list-group');
 
-  // Render single note item
+  // Function to render a single note item
   const renderNote = (note) => {
     const li = document.createElement('li');
     li.classList.add('list-group-item');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     noteList.appendChild(li);
   };
 
-  // Fetch notes from server and render
+  // Function to fetch notes from server and render them
   const getNotes = () => {
     fetch('/api/notes')
       .then(response => {
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching notes:', error));
   };
 
-  // Save new note to server
+  // Function to save a new note
   const saveNote = (note) => {
     fetch('/api/notes', {
       method: 'POST',
@@ -51,10 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(newNote => {
         renderNote(newNote);
-        noteTitle.value = '';
-        noteText.value = '';
+        clearForm();
       })
       .catch(error => console.error('Error saving note:', error));
+  };
+
+  // Function to clear the form inputs
+  const clearForm = () => {
+    noteTitle.value = '';
+    noteText.value = '';
   };
 
   // Event listener for save note button
@@ -68,6 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       alert('Please enter both a title and text for the note.');
     }
+  });
+
+  // Event listener for clear form button
+  clearBtn.addEventListener('click', () => {
+    clearForm();
   });
 
   // Fetch notes on page load
